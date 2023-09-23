@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    public WheelCollider[] WColForward; //2
-    public WheelCollider[] WColBack;  //3
+	public WheelCollider[] WColForward; //2
+	public WheelCollider[] WColBack;  //3
 
 	public Transform[] wheelsFL; //1
 	public Transform[] wheelsFR;
@@ -37,7 +37,8 @@ public class CarController : MonoBehaviour
 	protected WheelData[] wheelsL;
 	protected WheelData[] wheelsR;
 
-	void Awake() {
+	void Awake()
+	{
 		_instance = this;
 	}
 
@@ -131,7 +132,7 @@ public class CarController : MonoBehaviour
 
 
 			w.rotation = Mathf.Repeat(w.rotation - delta * w.col.rpm * 360.0f / 60.0f, 360.0f); //20
-			w.wheelTransform.localRotation = Quaternion.Euler(w.rotation, w.col.steerAngle+180, 0f); //21
+			w.wheelTransform.localRotation = Quaternion.Euler(w.rotation, w.col.steerAngle + 180, 0f); //21
 		}
 	}
 
@@ -155,6 +156,12 @@ public class CarController : MonoBehaviour
 		{ //8
 
 			foreach (WheelCollider col in WColBack)
+			{ //8
+				col.brakeTorque = 0; //8
+				col.motorTorque = accel * maxAccel; //8
+			}
+
+			foreach (WheelCollider col in WColForward)
 			{ //8
 				col.brakeTorque = 0; //8
 				col.motorTorque = accel * maxAccel; //8
