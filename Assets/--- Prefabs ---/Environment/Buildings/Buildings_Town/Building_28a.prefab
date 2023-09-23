@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 6392151878533096501}
   - component: {fileID: 9174266807578480895}
   - component: {fileID: 7439787392829324340}
+  - component: {fileID: 2618878104058274595}
   m_Layer: 9
   m_Name: Gym
   m_TagString: Untagged
@@ -124,8 +125,38 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7228690259602633002}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
   m_Size: {x: 0.28735325, y: 0.09128206, z: 0.17600492}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!64 &2618878104058274595
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7228690259602633002}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2727264645656156644, guid: cd0971b00325f8f40b86e33df6b029b7, type: 3}
