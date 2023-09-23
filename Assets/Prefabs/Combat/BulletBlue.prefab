@@ -4895,12 +4895,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 90
   RaycastAdvance: 2
-  Damage: 20
+  Damage: 40
   layerMask:
     serializedVersion: 2
-    m_Bits: 64
-  TargetTags: []
-  _flarePrefab: {fileID: 0}
+    m_Bits: 192
+  TargetTags:
+  - Enemy
+  _flarePrefab: {fileID: 122474, guid: 577af436092783e448b60646ae9c1da6, type: 3}
+  _bloodPrefab: {fileID: 2508226014934948750, guid: dd99e90a7c623a14db97793f0769ea3b, type: 3}
 --- !u!1 &3583191764575532768
 GameObject:
   m_ObjectHideFlags: 0
