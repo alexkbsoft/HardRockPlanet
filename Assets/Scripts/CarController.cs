@@ -22,6 +22,10 @@ public class CarController : MonoBehaviour
 
 	public Transform CenterMass;
 
+	public static CarController Instance => _instance;
+
+	private static CarController _instance;
+
 	public class WheelData
 	{ //3
 		public Transform wheelTransform; //4
@@ -32,6 +36,10 @@ public class CarController : MonoBehaviour
 
 	protected WheelData[] wheelsL;
 	protected WheelData[] wheelsR;
+
+	void Awake() {
+		_instance = this;
+	}
 
 	// Use this for initialization
 	void Start()

@@ -13,6 +13,7 @@ public class SimpleProjectile : MonoBehaviour
     public List<string> TargetTags;
 
     [SerializeField] GameObject _flarePrefab;
+    [SerializeField] GameObject _bloodPrefab;
     TrailRenderer _trail;
 
     void Awake()
@@ -32,20 +33,32 @@ public class SimpleProjectile : MonoBehaviour
             step.magnitude * RaycastAdvance,
             layerMask))
         {
-            // Damagable damagable = hitPoint.collider.gameObject.GetComponent<Damagable>();
-            // if (damagable && TargetTags.Contains(hitPoint.collider.tag))
-            // {
-            //     damagable.Damage(Damage);
-            // }
+            Damagable damagable = hitPoint.collider.gameObject.GetComponent<Damagable>();
+            if (damagable && TargetTags.Contains(hitPoint.collider.tag))
+            {
+                damagable.Damage(Damage);
+            }
 
-            // LeanPool.Despawn(gameObject);
-            // var flare = LeanPool.Spawn(_flarePrefab);
-            
-            // if (flare != null) {    
-            //     flare.transform.position = hitPoint.point;
-            //     flare.transform.rotation = Quaternion.LookRotation(hitPoint.normal);
-            //     LeanPool.Despawn(flare, 0.5f);
-            // }
+            if (hitPoint.collider.tag == "Enemy")
+            {
+                var blood = Instantiate(_bloodPrefab);
+
+                if (blood != null)
+                {
+                    blood.transform.position = hitPoint.point;
+                    blood.transform.rotation = Quaternion.LookRotation(hitPoint.normal);
+                }
+            }
+
+            Destroy(gameObject);
+
+            var flare = Instantiate(_flarePrefab);
+
+            if (flare != null)
+            {
+                flare.transform.position = hitPoint.point;
+                flare.transform.rotation = Quaternion.LookRotation(hitPoint.normal);
+            }
         }
     }
 
