@@ -876,7 +876,7 @@ GameObject:
   - component: {fileID: 7879127905922227227}
   - component: {fileID: 3508028884193039314}
   - component: {fileID: 3194775911891475365}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: DamagePlace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -931,7 +931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b369f9d2136ac2545b9b36119acafb60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventBus: {fileID: 0}
+  _eventBus: {fileID: 0}
 --- !u!1001 &7784142135787057856
 PrefabInstance:
   m_ObjectHideFlags: 0
