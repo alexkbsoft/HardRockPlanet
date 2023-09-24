@@ -18,10 +18,10 @@ public class NarrativeSO : MonoBehaviour
         _textContainer.transform.localScale = new Vector3(0, 0, 0);
         StartCoroutine(DelayedMessage(5f, NarrativeStrings[0]));
         StartCoroutine(DelayedMessage(15f, "Используй WASD для перемещения, мышь и ЛКМ для прицеливания и стрельбы. Нажми Е чтобы начать бурить, нажми F чтобы открыть меню улучшений",false));
-        for (int i = 1; i < 11; i++)
-        {
-            StartCoroutine(DelayedMessage(15f+i*10f, NarrativeStrings[i]));
-        }
+        //for (int i = 1; i < 11; i++)
+        //{
+        //    StartCoroutine(DelayedMessage(15f+i*10f, NarrativeStrings[i]));
+        //}
     }
 
     private IEnumerator DelayedMessage(float delay, string message, bool showPortrait = true)
