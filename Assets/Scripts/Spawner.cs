@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
     public float Radius = 5;
     public float Count = 1;
     public float Speed = 7;
+    public float MaxLife = 20;
 
     void Start()
     {
@@ -22,7 +23,9 @@ public class Spawner : MonoBehaviour
             rndPos.y = 0;
             var newEnemy = Instantiate(EnemyPrefab);
             newEnemy.transform.position = transform.position + rndPos;
+
             newEnemy.GetComponent<AIPath>().maxSpeed = Speed;
+            newEnemy.GetComponent<Damagable>().MaxLive = MaxLife;
         }
     }
 }

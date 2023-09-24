@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+	public bool IsBlocked = false;
 	public WheelCollider[] WColForward; //2
 	public WheelCollider[] WColBack;  //3
 
@@ -77,6 +78,9 @@ public class CarController : MonoBehaviour
 	}
 	void FixedUpdate()
 	{
+		if (IsBlocked) {
+			return;
+		}
 
 		float accel = 0;
 		float steer = 0;

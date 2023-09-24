@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class EventBus : MonoBehaviour
 {
     public UnityEvent<Mine> EnterMine;
+    public UnityEvent<Mine> ExitMine;
     public UnityEvent<float> Damaged;
 
     public static EventBus Instance;
