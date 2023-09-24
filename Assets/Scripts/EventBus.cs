@@ -8,6 +8,7 @@ public class EventBus : MonoBehaviour
     public UnityEvent<Mine> EnterMine;
     public UnityEvent<Mine> ExitMine;
     public UnityEvent<float> Damaged;
+    public UnityEvent<string> PopupText;
 
     public static EventBus Instance;
 
