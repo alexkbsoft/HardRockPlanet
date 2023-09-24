@@ -4895,7 +4895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 90
   RaycastAdvance: 2
-  Damage: 40
+  Damage: 20
   layerMask:
     serializedVersion: 2
     m_Bits: 192
