@@ -12,16 +12,27 @@ public class NarrativeSO : MonoBehaviour
     [SerializeField] private GameObject _portrait;
     [SerializeField] private GameObject _info;
     [SerializeField] private float _textShowDelay;
+    private EventBus _eventBus;
+    private int _currentNarrationStep = 1;
 
     void Start()
     {
+        _eventBus = EventBus.Instance;
         _textContainer.transform.localScale = new Vector3(0, 0, 0);
         StartCoroutine(DelayedMessage(5f, NarrativeStrings[0]));
-        StartCoroutine(DelayedMessage(15f, "Используй WASD для перемещения, мышь и ЛКМ для прицеливания и стрельбы. Нажми Е чтобы начать бурить, нажми F чтобы открыть меню улучшений",false));
+        StartCoroutine(DelayedMessage(15f, "Используй WASD для перемещения, ПКМ для прицеливания и ЛКМ стрельбы. \r\n Нажми Е чтобы начать бурить, нажми F чтобы открыть меню улучшений",false));
         //for (int i = 1; i < 11; i++)
         //{
         //    StartCoroutine(DelayedMessage(15f+i*10f, NarrativeStrings[i]));
         //}
+        _eventBus.EnterMine.AddListener(onEnterMine);
+    }
+
+    private void onEnterMine(Mine mine)
+    {
+        if (_currentNarrationStep>= NarrativeStrings.Length)
+        StartCoroutine(DelayedMessage(1f, NarrativeStrings[_currentNarrationStep]));
+        _currentNarrationStep++;
     }
 
     private IEnumerator DelayedMessage(float delay, string message, bool showPortrait = true)
@@ -42,5 +53,6 @@ public class NarrativeSO : MonoBehaviour
         yield return new WaitForSeconds(_textShowDelay);
         _textContainer.transform.DOScale(0f, 0.5f);
     }
+
 
 }
