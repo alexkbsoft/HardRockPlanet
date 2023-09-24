@@ -20,7 +20,7 @@ public class PopUp : MonoBehaviour
 
     public void Popup(string text)
     {
-        DelayedMessage(1f, text);
+        StartCoroutine(DelayedMessage(1f, text));
     }
 
     private IEnumerator DelayedMessage(float delay, string message)
