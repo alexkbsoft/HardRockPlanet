@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,10 +14,23 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI RestTitle;
     public TextMeshProUGUI FuelTitle;
     public TextMeshProUGUI TimeTitle;
+    public TextMeshProUGUI DeadReason;
+
+    public TextMeshProUGUI MobilityValue;
 
     public CarStorage MainStorage;
 
+    public GameObject DeathScrpeen;
+    public GameObject UpgradeScreen;
+
+
     private Mine _mine;
+
+    private int _curSeconds = 0;
+
+    void Update() {
+        UpdateCounters(_curSeconds);
+    }
 
 
     void Start()
@@ -68,6 +82,7 @@ public class GameManager : MonoBehaviour
         var toSpawn = 0;
         CarController.Instance.IsBlocked = true;
         Spawn();
+        _curSeconds = counter;
 
         while (counter > 0)
         {
@@ -77,6 +92,8 @@ public class GameManager : MonoBehaviour
 
             toSpawn += 1;
             counter -= 1;
+
+            _curSeconds = counter;
 
             if (counter % 2 == 0)
             {
@@ -108,7 +125,34 @@ public class GameManager : MonoBehaviour
     private void UpdateCounters(int secondsRemaining)
     {
         RestTitle.text = MainStorage.Resources.ToString();
-        FuelTitle.text = MainStorage.Fuel.ToString();
+        FuelTitle.text = ((int)MainStorage.Fuel).ToString();
         TimeTitle.text = (secondsRemaining > 0 ? secondsRemaining : 0).ToString();
+        MobilityValue.text = CarController.Instance.maxAccel.ToString();
+    }
+
+    public void OnDead(string reason) {
+        CarController.Instance.IsBlocked = true;
+
+        DeadReason.text = reason;
+        DeathScrpeen.SetActive(true);
+    }
+
+    public void Retry() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void UpgradeWindow() {
+        UpgradeScreen.SetActive(true);
+    }
+    public void CloseUpgradeWindow() {
+        UpgradeScreen.SetActive(false);
+    }
+
+    public void UpgradeMobility() {
+
+        if (MainStorage.Resources >= 200) {
+            CarController.Instance.maxAccel += 50;
+            MainStorage.Resources -= 200;
+        }
     }
 }

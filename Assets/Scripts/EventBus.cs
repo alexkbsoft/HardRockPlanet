@@ -9,6 +9,8 @@ public class EventBus : MonoBehaviour
     public UnityEvent<Mine> ExitMine;
     public UnityEvent<float> Damaged;
 
+    public UnityEvent<string> Dead;
+
     public static EventBus Instance;
 
     void Awake() {

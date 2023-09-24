@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CarStorage
   m_EditorClassIdentifier: 
   Resources: 0
-  Fuel: 1000
+  Fuel: 4247.0757
   SpeedLevel: 1
   DamageLevel: 1

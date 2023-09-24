@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+	public CarStorage MainStorage;
 	public bool IsBlocked = false;
 	public WheelCollider[] WColForward; //2
 	public WheelCollider[] WColBack;  //3
@@ -43,7 +44,10 @@ public class CarController : MonoBehaviour
 		_instance = this;
 	}
 
-	// Use this for initialization
+	public void OnDead() {
+		EventBus.Instance.Dead?.Invoke("Машина уничтожена");
+	}
+
 	void Start()
 	{
 		GetComponent<Rigidbody>().centerOfMass = CenterMass.localPosition;
@@ -90,6 +94,12 @@ public class CarController : MonoBehaviour
 
 		CarMove(accel, steer); //5
 		UpdateWheels();
+
+		MainStorage.Fuel -= accel * (maxAccel / 10) * Time.fixedDeltaTime;
+
+		if (MainStorage.Fuel <= 0 ) {
+			EventBus.Instance.Dead?.Invoke("Горючее кончилось");
+		}
 	}
 
 	private void UpdateWheels()
