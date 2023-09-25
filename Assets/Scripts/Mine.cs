@@ -49,7 +49,7 @@ public class Mine : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        UnityEditor.Handles.color = Color.green;
-        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.up, Radius);
+        // UnityEditor.Handles.color = Color.green;
+        // UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.up, Radius);
     }
 }
