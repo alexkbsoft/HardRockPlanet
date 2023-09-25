@@ -39,7 +39,7 @@ public class Turret : MonoBehaviour
 
             Quaternion wantedRotation = Quaternion.LookRotation(target - transform.position, Vector3.up);
             var eulerAngles = wantedRotation.eulerAngles;
-            eulerAngles.x = 0;
+            // eulerAngles.x = 0;
 
             transform.rotation = Quaternion.Slerp(
                 transform.rotation,
@@ -62,7 +62,7 @@ public class Turret : MonoBehaviour
     {
 
         var eulerAngles = transform.rotation.eulerAngles;
-        eulerAngles.x = 0;
+        // eulerAngles.x = 0;
 
         var newBullet = Instantiate(BulletPrefab, start, Quaternion.Euler(eulerAngles));
         Instantiate(MuzzlePrefab, start, transform.rotation * Quaternion.Euler(0, -180, 0), transform);
