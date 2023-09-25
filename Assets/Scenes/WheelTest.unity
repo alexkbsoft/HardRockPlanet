@@ -11862,6 +11862,30 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3423632677868900764, guid: b09674606bbf5e14eb5b637018e76021, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423632677868900764, guid: b09674606bbf5e14eb5b637018e76021, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9976101
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423632677868900764, guid: b09674606bbf5e14eb5b637018e76021, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.06909558
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423632677868900764, guid: b09674606bbf5e14eb5b637018e76021, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.000000014901161
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423632677868900764, guid: b09674606bbf5e14eb5b637018e76021, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423632677868900764, guid: b09674606bbf5e14eb5b637018e76021, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -7.924
+      objectReference: {fileID: 0}
     - target: {fileID: 3427593151259033987, guid: b09674606bbf5e14eb5b637018e76021, type: 3}
       propertyPath: m_Layer
       value: 6
