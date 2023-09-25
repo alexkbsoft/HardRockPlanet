@@ -13,7 +13,7 @@ public class CarStorage : ScriptableObject
     public void Reset()
     {
         Resources = 0;
-        Fuel = 5000;
+        Fuel = 1000;
         SpeedLevel = 1;
         DamageLevel = 1;
     }

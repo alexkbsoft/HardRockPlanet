@@ -20,7 +20,9 @@ public class NarrativeSO : MonoBehaviour
         _eventBus = EventBus.Instance;
         _textContainer.transform.localScale = new Vector3(0, 0, 0);
         StartCoroutine(DelayedMessage(5f, NarrativeStrings[0]));
-        StartCoroutine(DelayedMessage(15f, "Используй WASD для перемещения, ПКМ для прицеливания и ЛКМ стрельбы. \r\n Нажми Е чтобы начать бурить, нажми F чтобы открыть меню улучшений",false));
+        StartCoroutine(DelayedMessage(15f, "РСЃРїРѕР»СЊР·СѓР№ WASD РґР»СЏ РїРµСЂРµРјРµС‰РµРЅРёСЏ, РџРљРњ РґР»СЏ РїСЂРёС†РµР»РёРІР°РЅРёСЏ Рё Р›РљРњ СЃС‚СЂРµР»СЊР±С‹. \r\n РќР°Р¶РјРё Р• С‡С‚РѕР±С‹ РЅР°С‡Р°С‚СЊ Р±СѓСЂРёС‚СЊ, РЅР°Р¶РјРё F С‡С‚РѕР±С‹ РѕС‚РєСЂС‹С‚СЊ РјРµРЅСЋ СѓР»СѓС‡С€РµРЅРёР№", false));
+        StartCoroutine(DelayedMessage(25f, "РЎС‚СЂРµР»РєРё СѓРєР°Р·С‹РІР°СЋС‚ РЅР° Р±Р»РёР¶Р°Р№С€РёРµ РјРµСЃС‚РѕСЂРѕР¶РґРµРЅРёСЏ, С‡РµРј Р±РѕР»СЊС€Рµ Рё Р·РµР»РµРЅРЅРµРµ СЃС‚СЂРµР»РєР° - С‚РµРј Р±Р»РёР¶Рµ", false));
+        
         //for (int i = 1; i < 11; i++)
         //{
         //    StartCoroutine(DelayedMessage(15f+i*10f, NarrativeStrings[i]));
@@ -30,7 +32,10 @@ public class NarrativeSO : MonoBehaviour
 
     private void onEnterMine(Mine mine)
     {
-        if (_currentNarrationStep>= NarrativeStrings.Length)
+        if (_currentNarrationStep>= NarrativeStrings.Length) {
+            return;
+        }
+
         StartCoroutine(DelayedMessage(1f, NarrativeStrings[_currentNarrationStep]));
         _currentNarrationStep++;
     }
